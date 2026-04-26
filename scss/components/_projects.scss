@@ -115,7 +115,14 @@
 
 }
 
-
+// Отключение неактивных кнопок
+.projects__nav {
+  &.swiper-button-disabled {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+  }
+}
 
 // Карточка проекта
 .project-card {

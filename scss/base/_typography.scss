@@ -1,0 +1,43 @@
+// Объединяем общие стили, чтобы не дублировать код
+.section-title,
+.page-title {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  font-family: $font-family-secondary;
+  color: $color-dark;
+  position: relative;
+
+  // Декоративная линия
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: $color-accent;
+    border-radius: 2px;
+  }
+
+  // Адаптивность для обоих заголовков
+  @include respond(tab-port) {
+    font-size: $font-size-2xl;
+  }
+}
+
+// Индивидуальные отступы
+.section-title {
+  margin-bottom: $spacing-xl;
+}
+
+.page-title {
+  margin-bottom: $spacing-md;
+}
+
+.page-subtitle {
+  color: $color-text;
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  font-size: $font-size-lg;
+  line-height: 1.5;
+}

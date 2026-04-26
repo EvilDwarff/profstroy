@@ -1,0 +1,44 @@
+.clients {
+  padding: $spacing-2xl 0;
+  background: $color-light;
+
+  &__subtitle {
+    text-align: center;
+    color: $color-text;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-lg;
+  }
+
+  &__grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-2xl;
+
+    @include respond(tab-port) {
+      gap: $spacing-lg;
+    }
+  }
+
+  &__logo {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    padding: $spacing-lg $spacing-2xl;
+    background: white;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @include respond(tab-port) {
+      font-size: $font-size-lg;
+      padding: $spacing-md $spacing-lg;
+    }
+  }
+}

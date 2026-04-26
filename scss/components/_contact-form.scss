@@ -1,0 +1,144 @@
+.contact {
+  position: relative;
+  padding: $spacing-2xl 0;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+  }
+
+  &__wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: $spacing-2xl;
+    border-radius: $border-radius-lg;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+    line-height: 1.2;
+
+    @include respond(tab-port) {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__subtitle {
+    color: $color-text;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-base;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid $color-border;
+    transition: border-color 0.3s ease;
+
+    &:focus-within {
+      border-color: $color-primary;
+    }
+  }
+
+  &__icon {
+    font-size: $font-size-xl;
+    padding-right: $spacing-md;
+    color: $color-primary;
+  }
+
+  &__input {
+    flex: 1;
+    padding: $spacing-md 0;
+    border: none;
+    outline: none;
+    font-size: $font-size-base;
+    background: transparent;
+
+    &::placeholder {
+      color: $color-text-light;
+    }
+  }
+
+  &__btn {
+    padding: $spacing-md $spacing-xl;
+    background: $color-primary;
+    color: white;
+    border: none;
+    border-radius: $border-radius;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: $spacing-md;
+
+    &:hover {
+      background: darken($color-primary, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Contacts Page
+.contacts-page {
+  padding: 120px 0 $spacing-2xl;
+  background: $color-light;
+}
+
+.contacts-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  margin-top: $spacing-xl;
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contacts-info {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  padding: $spacing-xl;
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+  &__item h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__item p {
+    color: $color-text;
+    line-height: 1.6;
+    margin-bottom: $spacing-xs;
+  }
+}

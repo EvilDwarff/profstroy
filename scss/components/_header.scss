@@ -1,0 +1,155 @@
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  // Чистый стеклянный фон (без зелёного оттенка)
+  background: rgba(20, 25, 30, 0.6);
+
+  // Glass effect
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  // Лёгкие границы (эффект стекла)
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  // Мягкая тень
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+
+  z-index: 1000;
+  padding: $spacing-md 0;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-family: $font-family-primary;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-ultrabold;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $spacing-xl;
+
+    @include respond(tab-port) {
+      position: fixed;
+      top: 100%;
+      left: 0;
+      width: 100%;
+
+      background: rgba(20, 25, 30, 0.6);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      flex-direction: column;
+      padding: $spacing-lg;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+      transform: translateY(-150%);
+      transition: transform 0.3s ease;
+
+      &.header__nav--active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__link {
+    font-size: $font-size-xl;
+    font-family: $font-family-secondary;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: $font-weight-medium;
+    transition: color 0.3s ease;
+    position: relative;
+
+    &:hover,
+    &--active {
+      color: #ffffff;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ffffff;
+      transition: width 0.3s ease;
+    }
+  }
+
+  &__btn {
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $border-radius-lg;
+    font-weight: $font-weight-medium;
+    transition: all 0.3s ease;
+
+    &--outline {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      color: #ffffff;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ffffff;
+      }
+    }
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1100;
+
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #ffffff;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    // Анимация в крестик
+    &.active {
+      span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+
+    @include respond(tab-port) {
+      display: flex;
+    }
+  }
+}

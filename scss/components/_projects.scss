@@ -1,0 +1,115 @@
+.projects {
+  padding: $spacing-2xl 0;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__navigation {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__nav {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid $color-primary;
+    background: white;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: $font-size-lg;
+
+    &:hover {
+      background: $color-primary;
+      color: white;
+    }
+  }
+}
+
+.project-card {
+  position: relative;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  height: 400px;
+  cursor: pointer;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+    transition: background 0.3s ease;
+  }
+
+  &:hover {
+    .project-card__image {
+      transform: scale(1.1);
+    }
+
+    .project-card__overlay {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $spacing-xl;
+    color: white;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__category {
+    font-size: $font-size-base;
+    opacity: 0.9;
+    position: relative;
+    padding-bottom: $spacing-sm;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: $color-accent;
+    }
+  }
+}
+
+// Projects Page Styles
+.projects-page {
+  padding: 120px 0 $spacing-2xl;
+  background: $color-light;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-lg;
+}

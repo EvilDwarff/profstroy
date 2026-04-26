@@ -82,35 +82,35 @@
     overflow: hidden;
   }
 
-//  .projects__pagination {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 8px;
-//   margin-top: 30px;
-//   min-height: 20px;
+ .projects__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  min-height: 20px;
   
-//   // Убедитесь, что клики проходят
-//   pointer-events: auto !important; 
-// }
+  // Убедитесь, что клики проходят
+  pointer-events: auto !important; 
+}
 
-// // Стили самих точек
-// .swiper-pagination-bullet {
-//   width: 10px;
-//   height: 10px;
-//   background: $color-border; // Замените на вашу переменную $color-border
-//   border-radius: 50%;
-//   transition: all 0.3s ease; // БЕЗ !important
-//   cursor: pointer;
-//   opacity: 0.5;
+// Стили самих точек
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: $color-border; // Замените на вашу переменную $color-border
+  border-radius: 50%;
+  transition: all 0.3s ease; // БЕЗ !important
+  cursor: pointer;
+  opacity: 0.5;
 
-//   &-active {
-//     opacity: 1;
-//     background: $color-accent; // Замените на вашу переменную $color-accent
-//     width: 30px;
-//     border-radius: 5px;
-//   }
-// }
+  &-active {
+    opacity: 1;
+    background: $color-accent; // Замените на вашу переменную $color-accent
+    width: 30px;
+    border-radius: 5px;
+  }
+}
 
 
 }

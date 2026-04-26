@@ -133,3 +133,54 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(card);
   });
 });
+
+
+
+// === КАРУСЕЛЬ ПРОЕКТОВ ===
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof Swiper === 'undefined') return;
+
+  const projectsSwiper = new Swiper('.projects__swiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    grabCursor: true,
+    
+    // Позволяет корректно работать с дробными slidesPerView (1.2)
+    centeredSlides: false, 
+    
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+
+    navigation: {
+      nextEl: '.projects__nav--next',
+      prevEl: '.projects__nav--prev',
+    },
+    
+    pagination: {
+      el: '.projects__pagination',
+      type: 'bullets',
+      clickable: true,
+      // Это заставляет пагинацию перерисовываться при инициализации
+      dynamicBullets: false, 
+    },
+
+    // Обработка событий
+    on: {
+      // Исправляем работу пагинации через realIndex
+      slideChange: function () {
+        const currentRealIndex = this.realIndex;
+        // Принудительно обновляем состояние пагинации
+        this.pagination.update();
+        console.log('Active Real Index:', currentRealIndex); // Для теста в консоли
+      },
+    },
+    
+    breakpoints: {
+      320: { slidesPerView: 1, spaceBetween: 16 },
+      640: { slidesPerView: 1.2, spaceBetween: 20 },
+      768: { slidesPerView: 2, spaceBetween: 24 },
+      1280: { slidesPerView: 3, spaceBetween: 24 },
+    }
+  });
+});

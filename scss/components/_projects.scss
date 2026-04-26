@@ -1,72 +1,170 @@
 .projects {
   padding: $spacing-2xl 0;
+  background: #fff;
 
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; // Центрирование по вертикали
     margin-bottom: $spacing-xl;
+    gap: $spacing-md; // Отступ между заголовком и стрелками
+
+    @include respond(tab-port) {
+      // На мобильном оставляем row, но адаптируем размеры
+      flex-direction: row; 
+      justify-content: space-between;
+      align-items: center;
+      gap: $spacing-sm;
+    }
+  }
+
+  &__title-wrapper {
+    // Обёртка для заголовка (если нужно ограничить ширину)
+    display: flex;
+    align-items: center;
+    min-width: 0; // Чтобы текст не ломал верстку
+    
+    @include respond(tab-port) {
+      flex: 1; // Забирает свободное место
+      min-width: 0;
+    }
   }
 
   &__navigation {
     display: flex;
-    gap: $spacing-sm;
+    gap: $spacing-sm; // Уменьшаем отступ на мобильном
+    flex-shrink: 0; // Чтобы кнопки не сжимались
+
+    @include respond(tab-port) {
+      gap: $spacing-xs;
+    }
   }
 
   &__nav {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid $color-primary;
+    border: 2px solid $color-dark;
     background: white;
-    color: $color-primary;
+    color: $color-dark;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: $font-size-lg;
+    flex-shrink: 0; // Кнопки не должны сжиматься
 
     &:hover {
-      background: $color-primary;
+      background: $color-dark;
       color: white;
+      transform: scale(1.05);
     }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    // Уменьшаем кнопки на мобильном
+    @include respond(tab-port) {
+      width: 40px;
+      height: 40px;
+      
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  &__swiper {
+    padding-bottom: 40px !important;
+    overflow: hidden;
+  }
+
+//  .projects__pagination {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 8px;
+//   margin-top: 30px;
+//   min-height: 20px;
+  
+//   // Убедитесь, что клики проходят
+//   pointer-events: auto !important; 
+// }
+
+// // Стили самих точек
+// .swiper-pagination-bullet {
+//   width: 10px;
+//   height: 10px;
+//   background: $color-border; // Замените на вашу переменную $color-border
+//   border-radius: 50%;
+//   transition: all 0.3s ease; // БЕЗ !important
+//   cursor: pointer;
+//   opacity: 0.5;
+
+//   &-active {
+//     opacity: 1;
+//     background: $color-accent; // Замените на вашу переменную $color-accent
+//     width: 30px;
+//     border-radius: 5px;
+//   }
+// }
+
+
+}
+
+// Отключение неактивных кнопок
+.projects__nav {
+  &.swiper-button-disabled {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
   }
 }
 
+// Карточка проекта
 .project-card {
   position: relative;
-  border-radius: $border-radius-lg;
+  border-radius: $border-radius;
   overflow: hidden;
-  height: 400px;
+  height: 650px;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    .project-card__image {
+      transform: scale(1.08);
+    }
+
+    .project-card__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+    }
+  }
 
   &__image {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
   }
 
   &__overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
     transition: background 0.3s ease;
-  }
-
-  &:hover {
-    .project-card__image {
-      transform: scale(1.1);
-    }
-
-    .project-card__overlay {
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
-    }
   }
 
   &__content {
@@ -76,16 +174,24 @@
     right: 0;
     padding: $spacing-xl;
     color: white;
+    z-index: 2;
   }
 
   &__title {
-    font-size: $font-size-2xl;
-    font-weight: $font-weight-bold;
+    font-family: $font-family-secondary;
+    font-size: 28px;
+    font-weight: 700;
     margin-bottom: $spacing-sm;
+    line-height: 1.2;
+
+    @media (max-width: 1024px) {
+      font-size: 24px;
+    }
   }
 
   &__category {
-    font-size: $font-size-base;
+    font-family: $font-family-primary;
+    font-size: 16px;
     opacity: 0.9;
     position: relative;
     padding-bottom: $spacing-sm;
@@ -98,18 +204,54 @@
       width: 50px;
       height: 3px;
       background: $color-accent;
+      transition: width 0.3s ease;
+    }
+
+    .project-card:hover &::after {
+      width: 100px;
     }
   }
 }
 
-// Projects Page Styles
-.projects-page {
-  padding: 120px 0 $spacing-2xl;
-  background: $color-light;
+// Адаптивность
+.swiper-slide {
+  height: auto;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: $spacing-lg;
+@include respond(tab-land) {
+  .project-card {
+    height: 400px;
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+}
+
+@include respond(tab-port) {
+  .project-card {
+    height: 350px;
+
+    &__title {
+      font-size: 22px;
+    }
+
+    &__category {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    height: 300px;
+
+    &__content {
+      padding: $spacing-md;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+  }
 }

@@ -6,10 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
   <title>ПРОФСТРОЙ - Строительство коммерческих и жилых объектов</title>
-  <link rel="stylesheet" href="scss/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="scss/main.css">
+  
+  
 </head>
 
+<!-- Перед </body> -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 <body>
   <!-- Header -->
   <header class="header">
@@ -114,69 +118,112 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <!-- <section class="projects">
-    <div class="container">
-      <div class="projects__header">
-        <h2 class="section-title">Наши проекты</h2>
-        <div class="projects__navigation">
-          <button class="projects__nav projects__nav--prev">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-          <button class="projects__nav projects__nav--next">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
+ <!-- Projects Section -->
+<section class="projects">
+  <div class="container">
+    <div class="projects__header">
+      <h2 class="section-title">Наши проекты</h2>
+      <div class="projects__navigation">
+        <button class="projects__nav projects__nav--prev" aria-label="Предыдущие проекты">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="projects__nav projects__nav--next" aria-label="Следующие проекты">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
+    </div>
 
-      <div class="swiper projects__swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="project-card">
-              <div class="project-card__image"
-                style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800')">
-                <div class="project-card__overlay"></div>
-              </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title">Мнёвники 3</h3>
-                <p class="project-card__category">Бизнес-центр</p>
-              </div>
+    <div class="swiper projects__swiper">
+      <div class="swiper-wrapper">
+        <!-- Карточка 1 -->
+        <div class="swiper-slide">
+          <div class="project-card">
+            <div class="project-card__image" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800')">
+              <div class="project-card__overlay"></div>
+            </div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">Мнёвники 3</h3>
+              <p class="project-card__category">Бизнес-центр</p>
             </div>
           </div>
+        </div>
 
-          <div class="swiper-slide">
-            <div class="project-card">
-              <div class="project-card__image"
-                style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800')">
-                <div class="project-card__overlay"></div>
-              </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title">Ходынка 1</h3>
-                <p class="project-card__category">Офисный квартал</p>
-              </div>
+        <!-- Карточка 2 -->
+        <div class="swiper-slide">
+          <div class="project-card">
+            <div class="project-card__image" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800')">
+              <div class="project-card__overlay"></div>
+            </div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">Ходынка 1</h3>
+              <p class="project-card__category">Офисный квартал</p>
             </div>
           </div>
+        </div>
 
-          <div class="swiper-slide">
-            <div class="project-card">
-              <div class="project-card__image"
-                style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800')">
-                <div class="project-card__overlay"></div>
-              </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title">Мнёвники 1, 2</h3>
-                <p class="project-card__category">Бизнес-центры на реке</p>
-              </div>
+        <!-- Карточка 3 -->
+        <div class="swiper-slide">
+          <div class="project-card">
+            <div class="project-card__image" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800')">
+              <div class="project-card__overlay"></div>
+            </div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">Мнёвники 1, 2</h3>
+              <p class="project-card__category">Бизнес-центры на реке</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 4 -->
+        <div class="swiper-slide">
+          <div class="project-card">
+            <div class="project-card__image" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800')">
+              <div class="project-card__overlay"></div>
+            </div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">Ходынка 2</h3>
+              <p class="project-card__category">Офисный квартал</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 5 -->
+        <div class="swiper-slide">
+          <div class="project-card">
+            <div class="project-card__image" style="background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800')">
+              <div class="project-card__overlay"></div>
+            </div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">Ходынка 3</h3>
+              <p class="project-card__category">Офисный центр</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 6 -->
+        <div class="swiper-slide">
+          <div class="project-card">
+            <div class="project-card__image" style="background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800')">
+              <div class="project-card__overlay"></div>
+            </div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">Ходынка 4</h3>
+              <p class="project-card__category">Бизнес-центр</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section> -->
+
+    <!-- Пагинация (точки) -->
+    <!-- <div class="projects__pagination"></div> -->
+  </div>
+</section>
+
 
   <!-- Contact Form Section -->
   <!-- <section class="contact">

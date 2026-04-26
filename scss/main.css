@@ -617,12 +617,6 @@ ul, ol {
   border-radius: 5px;
 }
 
-.projects__nav.swiper-button-disabled {
-  opacity: 0.3 !important;
-  cursor: not-allowed !important;
-  pointer-events: none !important;
-}
-
 .project-card {
   position: relative;
   border-radius: 0.9375rem;

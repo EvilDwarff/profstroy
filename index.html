@@ -8,12 +8,13 @@
   <title>ПРОФСТРОЙ - Строительство коммерческих и жилых объектов</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="scss/main.css">
-  
-  
+
+
 </head>
 
 <!-- Перед </body> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
 <body>
   <!-- Header -->
   <header class="header">
@@ -21,7 +22,7 @@
       <div class="header__logo">ПРОФСТРОЙ</div>
 
       <nav class="header__nav">
-        
+
         <a href="#index" class="header__link header__link--active">Главная</a>
         <a href="#advantages" class="header__link">Преимущества</a>
         <a href="#projects" class="header__link">Проекты</a>
@@ -29,7 +30,7 @@
 
       </nav>
 
-      <a href="contacts.html" class="header__btn header__btn--outline">
+      <a href="#contacts" class="header__btn header__btn--outline">
         Связаться
       </a>
 
@@ -118,133 +119,147 @@
     </div>
   </section>
 
- <!-- Projects Section -->
-<section id="projects" class="projects">
-  <div class="container">
-    <div class="projects__header">
-      <h2 class="section-title">Наши проекты</h2>
-      <div class="projects__navigation">
-        <button class="projects__nav projects__nav--prev" aria-label="Предыдущие проекты">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button class="projects__nav projects__nav--next" aria-label="Следующие проекты">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <div class="swiper projects__swiper">
-      <div class="swiper-wrapper">
-        <!-- Карточка 1 -->
-        <div class="swiper-slide">
-          <div class="project-card">
-            <div class="project-card__image" style="background-image: url('./img/project_1.png')">
-              <div class="project-card__overlay"></div>
-            </div>
-            <div class="project-card__content">
-              <h3 class="project-card__title">Мнёвники 3</h3>
-              <p class="project-card__category">Бизнес-центр</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Карточка 2 -->
-        <div class="swiper-slide">
-          <div class="project-card">
-            <div class="project-card__image" style="background-image: url('./img/project_2.png')">
-              <div class="project-card__overlay"></div>
-            </div>
-            <div class="project-card__content">
-              <h3 class="project-card__title">Ходынка 1</h3>
-              <p class="project-card__category">Офисный квартал</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Карточка 3 -->
-        <div class="swiper-slide">
-          <div class="project-card">
-            <div class="project-card__image" style="background-image: url('./img/project_3.png')">
-              <div class="project-card__overlay"></div>
-            </div>
-            <div class="project-card__content">
-              <h3 class="project-card__title">Мнёвники 1, 2</h3>
-              <p class="project-card__category">Бизнес-центры на реке</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Карточка 4 -->
-        <div class="swiper-slide">
-          <div class="project-card">
-            <div class="project-card__image" style="background-image: url('./img/project_4.jpg')">
-              <div class="project-card__overlay"></div>
-            </div>
-            <div class="project-card__content">
-              <h3 class="project-card__title">Ходынка 2</h3>
-              <p class="project-card__category">Офисный квартал</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Карточка 5 -->
-        <div class="swiper-slide">
-          <div class="project-card">
-            <div class="project-card__image" style="background-image: url('./img/project_5.jpg')">
-              <div class="project-card__overlay"></div>
-            </div>
-            <div class="project-card__content">
-              <h3 class="project-card__title">Ходынка 3</h3>
-              <p class="project-card__category">Офисный центр</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Карточка 6 -->
-        <div class="swiper-slide">
-          <div class="project-card">
-            <div class="project-card__image" style="background-image: url('./img/project_6.jpg')">
-              <div class="project-card__overlay"></div>
-            </div>
-            <div class="project-card__content">
-              <h3 class="project-card__title">Ходынка 4</h3>
-              <p class="project-card__category">Бизнес-центр</p>
-            </div>
-          </div>
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="projects__header">
+        <h2 class="section-title">Наши проекты</h2>
+        <div class="projects__navigation">
+          <button class="projects__nav projects__nav--prev" aria-label="Предыдущие проекты">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="projects__nav projects__nav--next" aria-label="Следующие проекты">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
-    </div>
 
-    <!-- Пагинация (точки) -->
-    <!-- <div class="projects__pagination"></div> -->
-  </div>
-</section>
+      <div class="swiper projects__swiper">
+        <div class="swiper-wrapper">
+          <!-- Карточка 1 -->
+          <div class="swiper-slide">
+            <div class="project-card">
+              <div class="project-card__image" style="background-image: url('./img/project_1.png')">
+                <div class="project-card__overlay"></div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Мнёвники 3</h3>
+                <p class="project-card__category">Бизнес-центр</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карточка 2 -->
+          <div class="swiper-slide">
+            <div class="project-card">
+              <div class="project-card__image" style="background-image: url('./img/project_2.png')">
+                <div class="project-card__overlay"></div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Ходынка 1</h3>
+                <p class="project-card__category">Офисный квартал</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карточка 3 -->
+          <div class="swiper-slide">
+            <div class="project-card">
+              <div class="project-card__image" style="background-image: url('./img/project_3.png')">
+                <div class="project-card__overlay"></div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Мнёвники 1, 2</h3>
+                <p class="project-card__category">Бизнес-центры на реке</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карточка 4 -->
+          <div class="swiper-slide">
+            <div class="project-card">
+              <div class="project-card__image" style="background-image: url('./img/project_4.jpg')">
+                <div class="project-card__overlay"></div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Ходынка 2</h3>
+                <p class="project-card__category">Офисный квартал</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карточка 5 -->
+          <div class="swiper-slide">
+            <div class="project-card">
+              <div class="project-card__image" style="background-image: url('./img/project_5.jpg')">
+                <div class="project-card__overlay"></div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Ходынка 3</h3>
+                <p class="project-card__category">Офисный центр</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карточка 6 -->
+          <div class="swiper-slide">
+            <div class="project-card">
+              <div class="project-card__image" style="background-image: url('./img/project_6.jpg')">
+                <div class="project-card__overlay"></div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Ходынка 4</h3>
+                <p class="project-card__category">Бизнес-центр</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Пагинация (точки) -->
+      <!-- <div class="projects__pagination"></div> -->
+    </div>
+  </section>
 
 
   <!-- Contact Form Section -->
-  <!-- <section class="contact">
+  <section id="contacts" class="contact">
     <div class="contact__bg"></div>
-    <div class="container">
-      <div class="contact__wrapper">
+    <div class="contact__overlay"></div>
+
+    
+      <div class="container contact__wrapper">
         <div class="contact__content">
           <h2 class="contact__title">ЕСТЬ ВОПРОС?<br>МЫ ОТВЕТИМ!</h2>
           <p class="contact__subtitle">
-            Десятки направлений для роста в удобном для вас формате
+            Оставьте контакты, и мы свяжемся с вами в ближайшее время
           </p>
 
           <form class="contact__form" id="contactForm">
             <div class="contact__field">
-              <span class="contact__icon">👤</span>
-              <input type="text" name="name" placeholder="ПрофСтрой" class="contact__input" required />
+              <span class="contact__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <input type="text" name="name" placeholder="Ваше имя" class="contact__input" required />
             </div>
 
             <div class="contact__field">
-              <span class="contact__icon">📞</span>
-              <input type="tel" name="phone" placeholder="Номер телефона или почта" class="contact__input" required />
+              <span class="contact__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+              </span>
+            
+          <input type="tel" name="phone" id="phoneInput" placeholder="+7 (___) ___-__-__" class="contact__input" required />
             </div>
 
             <button type="submit" class="contact__btn">
@@ -253,8 +268,8 @@
           </form>
         </div>
       </div>
-    </div>
-  </section> -->
+  
+  </section>
 
   <!-- Clients Section -->
   <!-- <section class="clients">
@@ -376,7 +391,7 @@
               1.565-.853v-1.966c0-.626.133-.752.574-.752.324 0 .882.164 2.183 1.417 1.486 1.486 1.732 2.153 2.567
               2.153h2.192c.626 0
               .939-.313.759-.931-.197-.615-.907-1.51-1.849-2.569-.512-.604-1.277-1.254-1.51-1.579-.325-.419-.231-.604
-              0-.976.001.001 2.672-3.761 2.95-5.04z"/>
+              0-.976.001.001 2.672-3.761 2.95-5.04z" />
             </svg>
           </a>
           <!-- <a href="#" class="footer__social">
@@ -390,6 +405,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/imask/dist/imask.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 

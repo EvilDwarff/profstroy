@@ -184,3 +184,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+// === ФОРМА ОБРАТНОЙ СВЯЗИ ===
+
+
+// Обработка формы обратной связи
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.getElementById('contactForm');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const name = formData.get('name');
+      const phone = formData.get('phone');
+      
+      // Здесь можно добавить отправку данных на сервер
+      console.log('Form submitted:', { name, phone });
+      
+      // Показываем сообщение об успехе
+      alert(`Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`);
+      
+      // Очищаем форму
+      contactForm.reset();
+    });
+  }
+});
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const phoneInput = document.getElementById('phoneInput');
+    if (phoneInput) {
+      IMask(phoneInput, {
+        mask: '+{7} (000) 000-00-00',
+        lazy: false, // Маска появляется сразу при фокусе
+        placeholderChar: '_'
+      });
+    }
+  });

@@ -1,50 +1,99 @@
 .contact {
   position: relative;
   padding: $spacing-2xl 0;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  
   overflow: hidden;
+  
 
+  // Фоновое изображение
   &__bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.2;
+    inset: 0;
+    background: url('../img/contact.png') center/cover no-repeat;
+    z-index: 1;
+  }
+
+  // Затемнение фона
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
   }
 
   &__wrapper {
     position: relative;
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: $spacing-2xl;
-    border-radius: $border-radius-lg;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; // Прижимаем к левому краю контейнера
+    padding-left: 12%;
+    
+   
+
+    @include respond(tab-land) {
+      padding-left: 8%;
+    }
+
+    @include respond(tab-port) {
+      padding-left: 0;
+      justify-content: center;
+    }
   }
 
   &__content {
-    text-align: center;
+   
+    background: #fff;
+    padding: $spacing-2xl;
+    max-width: 738px;
+    width: 100%;
+    border-radius: $border-radius;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    @include respond(tab-port) {
+      padding: $spacing-xl;
+      margin: 0 $spacing-md;
+    }
+
+    @media (max-width: 480px) {
+      padding: $spacing-lg;
+    }
   }
 
   &__title {
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    color: $color-primary;
+    font-size: 45px;
+    font-weight: 600;
+    color: $color-dark;
     margin-bottom: $spacing-md;
-    line-height: 1.2;
+    line-height: 1.1;
 
     @include respond(tab-port) {
-      font-size: $font-size-2xl;
+      font-size: 36px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
     }
   }
 
   &__subtitle {
+    font-family: $font-family-primary;
+    font-size: 18px;
     color: $color-text;
     margin-bottom: $spacing-xl;
-    font-size: $font-size-base;
+    line-height: 1.5;
+
+    @include respond(tab-port) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      margin-bottom: $spacing-lg;
+    }
   }
 
   &__form {
@@ -56,89 +105,93 @@
   &__field {
     display: flex;
     align-items: center;
+    padding-bottom: $spacing-md;
     border-bottom: 2px solid $color-border;
     transition: border-color 0.3s ease;
 
     &:focus-within {
-      border-color: $color-primary;
+      border-color: $color-dark;
+    }
+
+    @media (max-width: 480px) {
+      padding-bottom: $spacing-sm;
     }
   }
 
   &__icon {
-    font-size: $font-size-xl;
-    padding-right: $spacing-md;
-    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: $color-dark;
+    margin-right: $spacing-md;
+    flex-shrink: 0;
+
+    @media (max-width: 480px) {
+      width: 32px;
+      height: 32px;
+      margin-right: $spacing-sm;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
   }
 
   &__input {
     flex: 1;
-    padding: $spacing-md 0;
     border: none;
     outline: none;
-    font-size: $font-size-base;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    color: $color-dark;
     background: transparent;
+    padding: $spacing-sm 0;
 
     &::placeholder {
       color: $color-text-light;
     }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
   }
 
   &__btn {
-    padding: $spacing-md $spacing-xl;
-    background: $color-primary;
-    color: white;
+    background: $color-dark;
+    color: #fff;
     border: none;
-    border-radius: $border-radius;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-semibold;
+    padding: $spacing-md $spacing-2xl;
+    font-family: $font-family-secondary;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: $border-radius-lg;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: $spacing-md;
+    width: auto;
+    align-self: flex-start;
 
     &:hover {
-      background: darken($color-primary, 10%);
+      background: $color-primary;
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-  }
-}
 
-// Contacts Page
-.contacts-page {
-  padding: 120px 0 $spacing-2xl;
-  background: $color-light;
-}
+    &:active {
+      transform: translateY(0);
+    }
 
-.contacts-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-2xl;
-  margin-top: $spacing-xl;
+    @include respond(tab-port) {
+      width: 100%;
+      align-self: stretch;
+    }
 
-  @include respond(tab-port) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.contacts-info {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xl;
-  padding: $spacing-xl;
-  background: white;
-  border-radius: $border-radius-lg;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-
-  &__item h3 {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-semibold;
-    color: $color-primary;
-    margin-bottom: $spacing-sm;
-  }
-
-  &__item p {
-    color: $color-text;
-    line-height: 1.6;
-    margin-bottom: $spacing-xs;
+    @media (max-width: 480px) {
+      padding: $spacing-md;
+      font-size: 14px;
+    }
   }
 }

@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Form submitted:', { name, phone });
       
       // Показываем сообщение об успехе
-      alert(`Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`);
+      // alert(`Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`);
       
       // Очищаем форму
       contactForm.reset();

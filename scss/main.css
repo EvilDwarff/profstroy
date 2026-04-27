@@ -908,9 +908,12 @@ ul, ol {
   outline: none;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 16px;
-  color: #111827;
+  color: #9ca3af;
   background: transparent;
   padding: 0.5rem 0;
+}
+.contact__input:focus {
+  color: #111827;
 }
 .contact__input::-moz-placeholder {
   color: #9ca3af;

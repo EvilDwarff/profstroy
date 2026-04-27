@@ -368,7 +368,7 @@ ul, ol {
   min-height: 420px;
 }
 .advantage-card--large .advantage-card__content {
-  text-align: center;
+  text-align: left;
   padding: 2rem;
   max-width: 90%;
 }

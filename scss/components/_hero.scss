@@ -1,7 +1,4 @@
-
-
 .hero {
-  
   position: relative; 
   width: 100%;
   height: 100vh;
@@ -16,25 +13,19 @@
   &__overlay {
     position: absolute;
     inset: 0;
-
     z-index: 1;
   }
 
-  // === ГЛАВНОЕ ИСПРАВЛЕНИЕ ===
   &__content {
     position: relative;
     z-index: 2;
     color: #fff;
-    
-    // Убираем max-width и padding — пусть управляет .container!
     width: 100%;
     
-    // Ограничиваем ширину только текста, а не всего блока
     & > * {
       max-width: 1200px;
     }
   }
-  // ===========================
 
   &__title {
     font-size: 63px;
@@ -45,6 +36,7 @@
 
     @media (max-width: 768px) {
       font-size: 36px;
+      margin-bottom: 20px; // Чуть меньше отступ на мобильном
     }
   }
 
@@ -52,10 +44,22 @@
     font-size: $font-size-3xl;
     line-height: 1.5;
     opacity: 0.9;
-    
 
     @media (max-width: 768px) {
       font-size: 16px;
     }
+  }
+
+  // === ИСПРАВЛЕНИЕ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ===
+  @media (max-width: 768px) {
+    height: auto;           // Отключаем фиксацию на 100vh
+    min-height: auto;       // Сбрасываем минимальную высоту
+    padding: 100px 0 60px;   // Добавляем комфортные отступы сверху и снизу
+    
+    // Опционально: если нужно задать минимальную высоту, чтобы секция не схлопнулась
+    // min-height: 400px; 
+    
+    // Центрируем контент по вертикали через паддинги, а не flex
+    align-items: flex-start; 
   }
 }

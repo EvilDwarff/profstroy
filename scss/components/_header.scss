@@ -1,22 +1,15 @@
-
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
 
-  // Чистый стеклянный фон (без зелёного оттенка)
-  background: rgba(20, 25, 30, 0.6);
-
   // Glass effect
+  background: rgba(20, 25, 30, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-
-  // Лёгкие границы (эффект стекла)
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-
-  // Мягкая тень
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 
   z-index: 1000;
@@ -26,6 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px; // Добавляем горизонтальные отступы для контейнера
   }
 
   &__logo {
@@ -34,34 +28,52 @@
     font-weight: $font-weight-ultrabold;
     color: #ffffff;
     letter-spacing: 1px;
+    flex-shrink: 0; // Чтобы лого не сжималось
   }
 
   &__nav {
     display: flex;
     gap: $spacing-xl;
+    align-items: center;
 
-    @include respond(tab-port) {
+    // === DESKTOP STYLES ===
+    @media (min-width: 1025px) {
+      position: static;
+      transform: none;
+      background: transparent;
+      backdrop-filter: none;
+      padding: 0;
+      border: none;
+      flex-direction: row;
+      z-index: auto;
+    }
+
+    // === MOBILE / TABLET STYLES (до 1024px) ===
+    @media (max-width: 1024px) {
       position: fixed;
       top: 100%;
       left: 0;
       width: 100%;
-      z-index: -2;
+      z-index: 999;
 
-      background: rgba(20, 25, 30, 0.6);
-
+      background: rgba(20, 25, 30, 0.95); // Чуть плотнее фон для читаемости
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
 
       flex-direction: column;
-      padding: $spacing-lg;
-
+      align-items: flex-start;
+      padding: 24px 20px 40px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 
-      transform: translateY(-150%);
-      transition: transform 0.3s ease;
+      transform: translateY(-100%); // Прячем меню выше экрана
+      transition: transform 0.3s ease-in-out;
+      visibility: hidden;
+      opacity: 0;
 
       &.header__nav--active {
         transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
       }
     }
   }
@@ -73,14 +85,12 @@
     font-weight: $font-weight-medium;
     transition: color 0.3s ease;
     position: relative;
+    padding: 8px 0; // Увеличиваем область клика на мобильном
 
     &:hover,
     &--active {
       color: #ffffff;
-
-      &::after {
-        width: 100%;
-      }
+      &::after { width: 100%; }
     }
 
     &::after {
@@ -93,6 +103,14 @@
       background: #ffffff;
       transition: width 0.3s ease;
     }
+
+    // Стили для мобильного меню
+    @media (max-width: 1024px) {
+      font-size: 18px;
+      width: 100%;
+      
+      &::after { display: none; } // Убираем подчеркивание в мобильном
+    }
   }
 
   &__btn {
@@ -100,6 +118,7 @@
     border-radius: $border-radius-lg;
     font-weight: $font-weight-medium;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 
     &--outline {
       background: transparent;
@@ -112,7 +131,8 @@
       }
     }
 
-    @include respond(tab-port) {
+    // Скрываем кнопку в мобильном меню (можно вынести внутрь, если нужна в бургере)
+    @media (max-width: 1024px) {
       display: none;
     }
   }
@@ -121,9 +141,11 @@
     display: none;
     flex-direction: column;
     gap: 5px;
-    padding: 5px;
+    padding: 8px;
     cursor: pointer;
     z-index: 1100;
+    background: transparent;
+    border: none;
 
     span {
       display: block;
@@ -136,20 +158,13 @@
 
     // Анимация в крестик
     &.active {
-      span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-      }
-
-      span:nth-child(2) {
-        opacity: 0;
-      }
-
-      span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-      }
+      span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     }
 
-    @include respond(tab-port) {
+    // Показываем бургер на экранах до 1024px
+    @media (max-width: 1024px) {
       display: flex;
     }
   }
